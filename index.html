@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/87d1181a40.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Coin Viewer Project</title>
+</head>
+
+<!-- Back to top arrow (when scrolling down) -->
+<a class="backToTop" href="#"> <i class="fas fa-chevron-up"></i></a>
+
+<!-- Header, Logo, "links" -->
+<body>
+    <header>
+        <nav>
+            <ul class="navLinks">
+                <li><a onclick="onClickShowHome()" href="#">Home</a></li>
+                <li><a onclick="onClickShowLiveReports();onFirstClickStopGlowing()" class="liveReports" href="#">Live reports</a></li>
+                <li><a onclick="onClickShowAboutPage()" href="#">About Me</a></li>
+                <li class="li_logo">
+                    <div class="logo">
+                        <img src="images/bitcoin-logo.png" width="140px" alt="logo">
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+<div class="earnInvest">
+    <span>The world's most trusted coin currency viewer.</span>
+</div>
+
+
+<div class="searchForACoinDiv">  
+
+    <input id="searchInput" class="searchInput" type="text" placeholder="Search for a coin..">
+    <button id="clearTextInputButton" onclick="onClickClearSearchInput()" class="clearTextInputButton"><i class="fa">&#xf00d;</i></button>
+    <button id="uncheckAllToggles" onclick="onClickUncheckAllToggles();saveToLocalStorage()" class="uncheckAllToggles btn-primary"><a>Uncheck All</button>
+
+</div>
+
+<!-- Max toggled coins reached modal -->
+    <div class="modalContainer" id="modalContainer">
+        <div class="modalDiv">
+        <i class="fa" id="closeModal" onclick="onClickCloseMaxLimitReachedModal();saveToLocalStorage()">&#xf410;</i>
+                <h2>❗️ Max coin limit reached! ❗️ </h2>
+                <a> Please uncheck a coin 👇, or exit 👉. </a>
+                <div class="selctedCoinsContainer">
+
+                </div>
+        </div>
+    </div>
+
+<!-- User didn't select any checkbox and clicked on live reports Modal -->
+<div class="selectACoinModalContainer" id="selectACoinModalContainer">
+    <div class="selectACoinmodalDiv">
+    <i class="fa" id="closeSelectACoinModal" onclick="onClickCloseSelectACoinModal()">&#xf410;</i>
+            <h2>❗️  Select a coin  ❗️ </h2>
+            <a> Please select at least one coin in order to continue. </a>
+            <div class="btnDiv">
+                <button class="btn btn-primary" onclick="onClickCloseSelectACoinModal()">Got it!</button>
+            </div>
+    </div>
+</div>
+
+<!-- Container -->
+
+<div class="container">
+</div>
+
+<!-- About me -->
+<div class="aboutMe" hidden>
+    <div class="header">About Me 😎 </div>
+    <p>Hello, my name is <span>Jacob Cohen</span>. <br>
+        I am a software developer, currently studying at John Bryce, <br>
+        I am a discharged soldier, served at the northern side of Israel 🎖️.
+    </p>
+    <div class="aboutMeImages">
+        <img src="images/aboutme-image.jpg" width="240px" height="238px" style="border-radius: 3px;">
+    </div>
+<!-- data-target=".showAboutProject" data-toggle="collapse"  -->
+<button id="showMoreButton" class="btn btn-success">About This Project (click me!)</button>
+<div class="aboutTheProject">
+
+    <div class="footerWrapper">
+
+        <div class="infoAboutProject">
+            <p>In this project, I used <span>JavaScript</span>, <span>Jquery</span>,
+            <span>Bootstrap</span>, <span>CSS</span>, <span>HTML</span>, and linked "<span>Font-Awesome</span>" as well.</p>
+            <p>I also used <span>AJAX</span>, fetched data from API and showed it on a graph.. (In live report page).</p>
+            <p>Also added the abilty to <span>view fetched data</span> when clicking on the "more info" button.. (In home page).</p>
+            <p><span>Limited the user</span> to toggle only up to 5 coins, a modal will open if the user had reached the limit.</p>
+            <p>I also saved the checked cards to the <span>local storage</span>.</p>
+            <p>This project was really fun to make and got me even better at programming, <span>thank you for reading this</span>. 😀</p>
+        </div>
+
+        <div class="footer">
+            <p style="font-size: 18px;">Email me: ✉️<a href="#">kobicohen2121@gmail.com</a> or just make a call 📱 <a href="#">054-6456193</a>.</p>
+        </div>
+
+    </div>
+
+    </div>
+
+    
+</div>
+
+<!-- AJAX spinning loader -->
+<div class="loader">
+    <div></div>
+</div>
+
+<!-- Live reports Div  -->
+<div id="chartContainer" class="chartContainer" style="height: 370px; width: 60%;"></div>
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
